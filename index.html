@@ -1,0 +1,1056 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <link rel="icon" href="https://i.ibb.co/Pvw1XCwp/logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cia Imaginarius - Teatro Infantil Profissional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, rgba(130, 36, 227, 0.9) 0%, rgba(106, 27, 154, 0.85) 50%, rgba(74, 20, 140, 0.9) 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Playful stars background */
+        .cosmic-bg::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 50px 80px, rgba(255, 215, 0, 1), transparent),
+                radial-gradient(1px 1px at 120px 40px, rgba(255, 255, 255, 1), transparent),
+                radial-gradient(3px 3px at 200px 150px, rgba(255, 182, 193, 0.9), transparent),
+                radial-gradient(1px 1px at 300px 60px, rgba(173, 216, 230, 1), transparent),
+                radial-gradient(2px 2px at 80px 200px, rgba(255, 165, 0, 0.8), transparent),
+                radial-gradient(1px 1px at 250px 120px, rgba(255, 255, 255, 0.9), transparent),
+                radial-gradient(2px 2px at 150px 30px, rgba(255, 20, 147, 0.7), transparent),
+                radial-gradient(1px 1px at 350px 180px, rgba(255, 215, 0, 1), transparent),
+                radial-gradient(3px 3px at 20px 160px, rgba(255, 255, 255, 0.8), transparent),
+                radial-gradient(1px 1px at 180px 90px, rgba(135, 206, 235, 1), transparent);
+            background-repeat: repeat;
+            background-size: 400px 250px;
+            animation: magicalTwinkle 4s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .cosmic-bg::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(1px 1px at 70px 220px, rgba(255, 255, 255, 0.6), transparent),
+                radial-gradient(2px 2px at 320px 100px, rgba(255, 215, 0, 0.7), transparent),
+                radial-gradient(1px 1px at 160px 180px, rgba(255, 182, 193, 0.8), transparent),
+                radial-gradient(3px 3px at 280px 40px, rgba(173, 216, 230, 0.6), transparent),
+                radial-gradient(1px 1px at 40px 120px, rgba(255, 255, 255, 1), transparent),
+                radial-gradient(2px 2px at 220px 200px, rgba(255, 20, 147, 0.5), transparent);
+            background-repeat: repeat;
+            background-size: 360px 280px;
+            animation: magicalTwinkle 6s ease-in-out infinite alternate-reverse;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        @keyframes magicalTwinkle {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        @keyframes gentleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .floating { animation: gentleFloat 8s ease-in-out infinite; }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .card-professional {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card-professional:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 165, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 215, 0, 0.5);
+        }
+        
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            margin: 80px 0;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #FFD700;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background: #FFD700;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(130, 36, 227, 0.9) 0%, rgba(106, 27, 154, 0.8) 50%, rgba(74, 20, 140, 0.9) 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .title-gradient {
+            background: linear-gradient(135deg, #FF8C00 0%, #FF1493 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .team-photo {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-photo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 165, 0, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .team-photo:hover::before {
+            opacity: 1;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .gallery-item {
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FFD700;
+        }
+
+        /* Show poster styles */
+        .show-poster {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .show-poster::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+            z-index: 1;
+        }
+
+        .show-poster > * {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-counter {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="cosmic-bg">
+    
+    <div class="content-wrapper">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full glass-effect z-50 py-4">
+            <div class="container mx-auto px-6 flex justify-between items-center">
+                <div class="flex items-center">
+                    <div>
+                        <img src="https://i.ibb.co/d4SDmKHg/logo-header.png" alt="Logo" class="h-10 object-contain">
+                        <p class="text-gray-300 text-xs">Teatro Infantil Profissional</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-4">
+                    <a href="#home" class="text-white nav-link font-bold">HOME</a>
+                    <a href="#sobre" class="text-white nav-link font-bold">SOBRE</a>
+                    <a href="#espetaculos" class="text-white nav-link font-bold">ESPETÁCULOS</a>
+                    <a href="#equipe" class="text-white nav-link font-bold">EQUIPE</a>
+                    <a href="#agenda" class="text-white nav-link font-bold">AGENDA</a>
+                    <a href="#galeria" class="text-white nav-link font-bold">GALERIA</a>
+                    <a href="#oficinas" class="text-white nav-link font-bold">OFICINAS</a>
+                    <a href="#contato" class="text-white nav-link font-bold">CONTATO</a>
+                </div>
+                <button class="md:hidden text-white text-2xl" onclick="toggleMobileMenu()">☰</button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden py-4 mt-4" style="background: rgba(74, 20, 140, 0.95); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1);">
+                <div class="container mx-auto px-6 flex flex-col space-y-4">
+                    <a href="#home" class="text-white nav-link font-medium">HOME</a>
+                    <a href="#sobre" class="text-white nav-link font-medium">SOBRE</a>
+                    <a href="#espetaculos" class="text-white nav-link font-medium">ESPETÁCULOS</a>
+                    <a href="#equipe" class="text-white nav-link font-medium">EQUIPE</a>
+                    <a href="#agenda" class="text-white nav-link font-medium">AGENDA</a>
+                    <a href="#galeria" class="text-white nav-link font-medium">GALERIA</a>
+                    <a href="#oficinas" class="text-white nav-link font-medium">OFICINAS</a>
+                    <a href="#contato" class="text-white nav-link font-medium">CONTATO</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center pt-20 hero-gradient">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <br>
+                   <img src="https://i.ibb.co/vKw6K0p/LOGO-IMAGINARIUS22.png" alt="Hero Image" class="w-full rounded-2xl mb-8">
+                    <p class="text-xl md:text-2xl text-gray-200 mb-4 font-light">Teatro Infantil Profissional</p>
+                    <p class="text-lg text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed">
+                        Criamos experiências teatrais únicas que encantam, educam e inspiram crianças e famílias há mais de uma década.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button onclick="scrollToSection('espetaculos')" class="btn-primary text-purple-900 font-semibold py-4 px-8 rounded-xl text-lg">
+                            Nossos Espetáculos
+                        </button>
+                    </div>
+                     <br>
+                        <br>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Section -->
+        <section id="sobre" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold title-gradient mb-4 playfair">Sobre a Companhia</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Criando magia através do teatro infantil</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="glass-effect rounded-2xl p-8 card-professional space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gradient mb-4 playfair">Nossa Missão</h3>
+                            <p class="text-gray-200 leading-relaxed">
+                                Promover cultura e encantamento através do teatro, inspirando crianças e famílias com histórias que tocam o coração e despertam a imaginação, contribuindo para o desenvolvimento integral das crianças.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-bold text-gradient mb-4 playfair">Nossa Visão</h3>
+                            <p class="text-gray-200 leading-relaxed">
+                                Ser referência nacional em teatro infantil lúdico e educativo, levando magia a todos os cantos do país e formando uma nova geração apaixonada pelas artes cênicas.
+                            </p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-bold text-gradient mb-4 playfair">Nossos Valores</h3>
+                            <p class="text-gray-200 leading-relaxed">
+                                Criatividade, acolhimento, ética, diversidade e inclusão são os pilares que guiam nossa jornada artística e nossa relação com o público.
+                            </p>
+                        </div>
+                    </div>
+                    
+               <div class="text-center">
+    <div class="w-80 h-80 bg-gradient-to-br from-purple-0 via-pink-0 to-yellow-0 rounded-3xl mx-auto flex items-center justify-center relative overflow-hidden border-4 border-white border-opacity-0 shadow-2xl card-professional">
+        <!-- Aqui entra a imagem fixa -->
+        <img src="https://i.ibb.co/Pvw1XCwp/logo.png" alt="Logo da Companhia" class="object-contain h-full w-full rounded-3xl">
+    </div>
+
+    <!-- Aqui entra a imagem do nome da companhia -->
+    <div class="mt-8">
+        <img src="https://i.ibb.co/ZRYKfrnR/nome.png" alt="Cia Imaginarius" class="mx-auto h-12">
+    </div>
+</div>
+</div>
+                </div>
+            </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Espetáculos Section -->
+        <section id="espetaculos" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold title-gradient mb-4 playfair">Nossos Espetáculos</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Histórias mágicas que encantam e educam</p>
+                </div>
+                
+               <h3 class="text-3xl font-bold text-gradient mb-12 text-center">Em Cartaz</h3>
+<div class="flex flex-col gap-12 mb-20">
+
+<!-- Grid responsiva -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+
+    <!-- Espetáculo 1 -->
+    <div class="glass-effect rounded-3xl overflow-hidden card-professional shadow-2xl">
+        <div>
+            <div class="h-80 bg-gradient-to-br from-pink-500 via-purple-600 to-blue-600 flex items-center justify-center relative group cursor-pointer">
+                <div class="text-center">
+                    <picture>
+    <!-- IMAGEM DESKTOP - horizontal -->
+    <source srcset="https://i.ibb.co/20Mx6s59/estrelas-horizontal.png" media="(min-width: 768px)">
+    
+    <!-- IMAGEM MOBILE - vertical -->
+    <img src="https://i.ibb.co/nqTMjbtd/estrelas-vertical-2.png" alt="Cartaz Mistério das Estrelas" class="h-[360px] w-full object-cover rounded-lg mb-4">
+</picture>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <h4 class="text-3xl font-bold text-white mb-4 playfair">Mistério das Estrelas</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 bg-opacity-30 text-blue-200 px-3 py-1 rounded-full text-sm">Fantasia</span>
+                    <span class="bg-purple-500 bg-opacity-30 text-purple-200 px-3 py-1 rounded-full text-sm">Musical Infantil</span>
+                    <span class="bg-purple-500 bg-opacity-30 text-purple-200 px-3 py-1 rounded-full text-sm">Educativo</span>
+                    <span class="bg-pink-500 bg-opacity-30 text-pink-200 px-3 py-1 rounded-full text-sm">4-10 anos</span>
+                </div>
+                <p class="text-gray-200 mb-6 leading-relaxed">
+                    Em um reino mágico onde as estrelas começam a desaparecer misteriosamente, Luna, Sol e Estela embarcam em uma aventura para salvar o universo encantado. Durante a jornada, enfrentam desafios e conhecem a Rainha da Noite, que revela a origem do problema. Unidos pela amizade e coragem, eles enfrentam a Sombra e restauram o brilho das estrelas, celebrando a importância da união e da esperança.
+                </p>
+                <p class="text-yellow-400 font-medium mb-6">Duração: 60 minutos | Musical Interativo</p>
+                <a href="https://www.seusite.com/compra-ingressos" target="_blank" rel="noopener noreferrer" class="btn-primary w-full py-4 rounded-xl font-semibold text-purple-900 text-lg text-center block">
+                    Comprar Ingressos
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Espetáculo 2 -->
+   <div class="glass-effect rounded-3xl overflow-hidden card-professional shadow-2xl">
+        <div>
+            <div class="h-80 bg-gradient-to-br from-pink-500 via-purple-600 to-blue-600 flex items-center justify-center relative group cursor-pointer">
+                <div class="text-center">
+                    <picture>
+    <!-- IMAGEM DESKTOP - horizontal -->
+    <source srcset="https://i.ibb.co/DPdnBhKH/chapeu-horizontal-2.png" media="(min-width: 768px)">
+    
+    <!-- IMAGEM MOBILE - vertical -->
+    <img src="https://i.ibb.co/zVpZZX8G/chapeu-vertical-2.png" alt="Cartaz Chapeuzinho Vermelho" class="h-[360px] w-full object-cover rounded-lg mb-4">
+</picture>
+                </div>
+            </div>
+
+            <div class="p-8">
+                <h4 class="text-3xl font-bold text-white mb-4 playfair">Chapeuzinho Vermelho</h4>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 bg-opacity-30 text-blue-200 px-3 py-1 rounded-full text-sm">Fantasia</span>
+                    <span class="bg-purple-500 bg-opacity-30 text-purple-200 px-3 py-1 rounded-full text-sm">Classico Infantil</span>
+                    <span class="bg-purple-500 bg-opacity-30 text-purple-200 px-3 py-1 rounded-full text-sm">Educativo</span>
+                    <span class="bg-pink-500 bg-opacity-30 text-pink-200 px-3 py-1 rounded-full text-sm">3-10 anos</span>
+                </div>
+                <p class="text-gray-200 mb-6 leading-relaxed">
+                   Chapeuzinho Vermelho é uma menina curiosa e corajosa que atravessa a floresta para visitar sua vovó. No caminho, ela encontra um lobo astuto, que tenta enganá-la e chegar primeiro à casa da vovó. Com ajuda da sua esperteza (e de alguns amigos da floresta), Chapeuzinho enfrenta desafios e aprende sobre confiança e cuidado. Uma aventura divertida e encantadora, repleta de lições para toda a família.                </p>
+                <p class="text-yellow-400 font-medium mb-6">Duração: 40 minutos | Classico Infantil</p>
+                <br>
+                <a href="https://www.seusite.com/compra-ingressos" target="_blank" rel="noopener noreferrer" class="btn-primary w-full py-4 rounded-xl font-semibold text-purple-900 text-lg text-center block">
+                    Comprar Ingressos
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   
+
+</div>
+
+                </div>
+<h3 class="text-2xl font-bold text-gradient mb-8 text-center">Outros Espetáculos</h3>
+<div class="grid md:grid-cols-2 gap-8">
+
+  <!-- PETER PAN -->
+<div class="glass-effect rounded-2xl overflow-hidden card-professional">
+    <div class="md:flex">
+        <div class="md:w-1/3 h-48 md:h-auto flex items-center justify-center bg-black">
+            <picture>
+                <!-- Imagem vertical para desktop -->
+                <source srcset="https://i.ibb.co/35S6sdz0/PETER-PAN-vertical.png" media="(min-width: 768px)">
+                <!-- Imagem horizontal para mobile -->
+                <img src="https://i.ibb.co/gLsnPzx0/PETER-PAN-horizontal.png" alt="Peter Pan" class="object-cover h-full w-full">
+            </picture>
+        </div>
+
+        <div class="md:w-2/3 p-6">
+            <h4 class="text-xl font-bold text-white mb-3 playfair">Peter Pan</h4>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                A clássica aventura do menino que se recusa a crescer e convida Wendy e seus irmãos a descobrirem as maravilhas da Terra do Nunca, enfrentando o temível Capitão Gancho.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-green-500 bg-opacity-30 text-green-200 px-3 py-1 rounded-full text-xs">Aventura</span>
+                <span class="bg-yellow-500 bg-opacity-30 text-yellow-200 px-3 py-1 rounded-full text-xs">Interativo</span>
+                <span class="bg-blue-500 bg-opacity-30 text-blue-200 px-3 py-1 rounded-full text-xs">4-12 anos</span>
+            </div>
+            <p class="text-yellow-400 text-sm font-medium">Duração: 50 minutos</p>
+        </div>
+    </div>
+</div>
+    <!-- O MÁGICO DE OZ -->
+    <div class="glass-effect rounded-2xl overflow-hidden card-professional">
+    <div class="md:flex">
+        <div class="md:w-1/3 h-48 md:h-auto flex items-center justify-center bg-black">
+            <picture>
+                <!-- Imagem vertical para desktop -->
+                <source srcset="https://i.ibb.co/YF55CJTd/MAGICO-vertical.png" media="(min-width: 768px)">
+                <!-- Imagem horizontal para mobile -->
+                <img src="https://i.ibb.co/5XVMv34Z/MAGICO-horizontal.png" alt="O Mágico de Oz" class="object-cover h-full w-full">
+            </picture>
+        </div>
+            <div class="md:w-2/3 p-6">
+                <h4 class="text-xl font-bold text-white mb-3 playfair">O Mágico de Oz</h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    Dorothy e seus amigos percorrem o caminho das pedras amarelas em busca de coragem, amor e sabedoria. Uma jornada cheia de encontros mágicos e lições sobre amizade e superação.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-purple-500 bg-opacity-30 text-purple-200 px-3 py-1 rounded-full text-xs">Musical</span>
+                    <span class="bg-green-500 bg-opacity-30 text-green-200 px-3 py-1 rounded-full text-xs">Educativo</span>
+                    <span class="bg-red-500 bg-opacity-30 text-red-200 px-3 py-1 rounded-full text-xs">5-12 anos</span>
+                </div>
+                <p class="text-yellow-400 text-sm font-medium">Duração: 55 minutos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOÃO E MARIA -->
+    <div class="glass-effect rounded-2xl overflow-hidden card-professional">
+    <div class="md:flex">
+        <div class="md:w-1/3 h-48 md:h-auto flex items-center justify-center bg-black">
+            <picture>
+                <!-- Imagem vertical para desktop -->
+                <source srcset="https://i.ibb.co/v85CqvK/JM-vertical.png" media="(min-width: 768px)">
+                <!-- Imagem horizontal para mobile -->
+                <img src="https://i.ibb.co/JWLGXjjY/JM-horizontal.png" alt="João e Maria" class="object-cover h-full w-full">
+            </picture>
+        </div>
+            <div class="md:w-2/3 p-6">
+                <h4 class="text-xl font-bold text-white mb-3 playfair">João e Maria</h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                    Perdidos na floresta, João e Maria encontram uma casa feita de doces, onde enfrentam a astuta bruxa. Uma história de coragem, união e inteligência.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-pink-500 bg-opacity-30 text-pink-200 px-3 py-1 rounded-full text-xs">Clássico</span>
+                    <span class="bg-yellow-500 bg-opacity-30 text-yellow-200 px-3 py-1 rounded-full text-xs">Interativo</span>
+                    <span class="bg-green-500 bg-opacity-30 text-green-200 px-3 py-1 rounded-full text-xs">4-10 anos</span>
+                </div>
+                <p class="text-yellow-400 text-sm font-medium">Duração: 45 minutos</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SINFONIA DAS CORES -->
+    <div class="glass-effect rounded-2xl overflow-hidden card-professional">
+    <div class="md:flex">
+        <div class="md:w-1/3 h-48 md:h-auto flex items-center justify-center bg-black">
+            <picture>
+                <!-- Imagem vertical para desktop -->
+                <source srcset="https://i.ibb.co/gbDvjKm8/CORES-vertical.png" media="(min-width: 768px)">
+                <!-- Imagem horizontal para mobile -->
+                <img src="https://i.ibb.co/7dwv4b2W/CORES-2-horizontal.png" alt="Sinfonia das Cores" class="object-cover h-full w-full">
+            </picture>
+        </div>
+            <div class="md:w-2/3 p-6">
+                <h4 class="text-xl font-bold text-white mb-3 playfair">Sinfonia das Cores</h4>
+                <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                 Na cidade mágica de Arco-Íris, um jovem pintor enfrenta forças sombrias que querem apagar a alegria do mundo. Com a ajuda dos amigos e da música, ele descobre o poder da diversidade e do amor próprio.
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="bg-blue-500 bg-opacity-30 text-blue-200 px-3 py-1 rounded-full text-xs">Musical</span>
+                    <span class="bg-rainbow bg-opacity-30 text-white px-3 py-1 rounded-full text-xs" style="background: linear-gradient(45deg, #ff0000, #ff8c00, #ffd700, #00ff00, #0000ff, #4b0082, #9400d3);">Diversidade</span>
+                    <span class="bg-green-500 bg-opacity-30 text-green-200 px-3 py-1 rounded-full text-xs">Educativo</span>
+                    <span class="bg-purple-500 bg-opacity-30 text-purple-200 px-3 py-1 rounded-full text-xs">10-16 anos</span>
+                </div>
+                <p class="text-yellow-400 text-sm font-medium">Duração: 60 minutos</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+            
+
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+         <!-- Equipe Section -->
+<section id="equipe" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold title-gradient mb-4 playfair">Nossa Equipe</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Profissionais apaixonados pela arte de encantar</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Maycon Turell -->
+            <div class="glass-effect rounded-2xl p-8 text-center card-professional">
+                <div class="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.ibb.co/p6VCHnGk/maycon.png" alt="Maycon Turell" class="object-cover h-full w-full rounded-2xl">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 playfair">Maycon Turell</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Ator, dramaturgo e diretor. Especialista na criação de espetáculos infantis, une sensibilidade e criatividade para encantar crianças e famílias no palco.</p>
+            </div>
+
+            <!-- Hebert Freitas -->
+            <div class="glass-effect rounded-2xl p-8 text-center card-professional">
+                <div class="w-24 h-24 bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.ibb.co/GfjjjjFX/hebert-co-pia.png" alt="Hebert Freitas" class="object-cover h-full w-full rounded-2xl">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 playfair">Hebert Freitas</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Ator dedicado ao universo infantil. Com ampla experiência em cena, dá vida a personagens que inspiram e divertem o público mirim.</p>
+            </div>
+
+            <!-- Milla Sossi -->
+            <div class="glass-effect rounded-2xl p-8 text-center card-professional">
+                <div class="w-24 h-24 bg-gradient-to-br from-pink-400 to-red-500 rounded-2xl mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.ibb.co/chsfLf4p/milla.png" alt="Milla Sossi" class="object-cover h-full w-full rounded-2xl">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 playfair">Milla Sossi</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Atriz e cantora apaixonada por teatro para crianças. Une música e interpretação para criar histórias cheias de magia e emoção.</p>
+            </div>
+
+            <!-- Jessica Landin -->
+            <div class="glass-effect rounded-2xl p-8 text-center card-professional">
+                <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-teal-500 rounded-2xl mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.ibb.co/5gQJv8xL/jessica.jpg" alt="Jessica Landin" class="object-cover h-full w-full rounded-2xl">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 playfair">Jessica Landin</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Atriz e contadora de histórias com trajetória no teatro infantil. Encanta o público com sua interpretação afetiva e carismática.</p>
+            </div>
+
+            <!-- Imani -->
+            <div class="glass-effect rounded-2xl p-8 text-center card-professional">
+                <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-indigo-500 rounded-2xl mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.ibb.co/JwTgc1Bw/vitoria.png" alt="Imani" class="object-cover h-full w-full rounded-2xl">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 playfair">Imani</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Cantora, instrumentista e produtora musical. Cria trilhas sonoras vibrantes que dão ritmo e emoção aos espetáculos da companhia.</p>
+            </div>
+
+            <!-- Manu Tecchio -->
+            <div class="glass-effect rounded-2xl p-8 text-center card-professional">
+                <div class="w-24 h-24 bg-gradient-to-br from-orange-400 to-yellow-500 rounded-2xl mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                    <img src="https://i.ibb.co/F4GB61xz/manu.jpg" alt="Manu Tecchio" class="object-cover h-full w-full rounded-2xl">
+                </div>
+                <h3 class="text-xl font-bold text-white mb-2 playfair">Manu Tecchio</h3>
+                <p class="text-gray-300 text-sm leading-relaxed">Técnico de som e luz com experiência em espetáculos infantis. Garante que cada cena tenha a sonoridade e iluminação perfeitas.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+        <div class="section-divider"></div>
+
+        <!-- Galeria Section -->
+        <section id="galeria" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold title-gradient mb-4 playfair">Galeria</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Momentos mágicos capturados</p>
+                </div>
+                
+                <div class="flex justify-center space-x-4 mb-12 flex-wrap gap-2">
+                    <button onclick="filterGallery('all')" class="btn-primary py-2 px-6 rounded-xl font-semibold text-purple-900 gallery-filter active">Todas</button>
+                    <button onclick="filterGallery('espetaculos')" class="btn-secondary text-white py-2 px-6 rounded-xl font-semibold gallery-filter">Espetáculos</button>
+                    <button onclick="filterGallery('bastidores')" class="btn-secondary text-white py-2 px-6 rounded-xl font-semibold gallery-filter">Bastidores</button>
+                    <button onclick="filterGallery('oficinas')" class="btn-secondary text-white py-2 px-6 rounded-xl font-semibold gallery-filter">Oficinas</button>
+                </div>
+
+                <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="gallery-item espetaculos bg-gradient-to-br from-pink-500 to-purple-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🚀', 'Viagem às Estrelas em ação!')">
+                        
+                    </div>
+                    <div class="gallery-item bastidores bg-gradient-to-br from-blue-500 to-teal-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🎭', 'Preparação dos atores nos bastidores')">
+                        
+                    </div>
+                    <div class="gallery-item oficinas bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🎨', 'Crianças criando em nossas oficinas')">
+                        
+                    </div>
+                    <div class="gallery-item espetaculos bg-gradient-to-br from-green-500 to-blue-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🧚‍♀️', 'O Reino Encantado em cena')">
+                        
+                    </div>
+                    <div class="gallery-item bastidores bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🎵', 'Ensaios musicais da equipe')">
+                        
+                    </div>
+                    <div class="gallery-item oficinas bg-gradient-to-br from-yellow-500 to-orange-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🌟', 'Oficina de expressão corporal')">
+                        
+                    </div>
+                    <div class="gallery-item espetaculos bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🦁', 'Safari Musical - momento épico!')">
+                        
+                    </div>
+                    <div class="gallery-item bastidores bg-gradient-to-br from-teal-500 to-green-600 rounded-2xl h-48 flex items-center justify-center text-5xl cursor-pointer" onclick="openModal('🎪', 'Montagem do cenário')">
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div id="imageModal" class="modal">
+            <div class="glass-effect rounded-3xl p-8 max-w-lg mx-4 text-center">
+                <div id="modalEmoji" class="text-8xl mb-4"></div>
+                <p id="modalText" class="text-white text-xl mb-6"></p>
+                <button onclick="closeModal()" class="btn-primary py-3 px-8 rounded-xl font-semibold text-purple-900">Fechar</button>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+       <!-- Oficinas Section -->
+<section id="oficinas" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold title-gradient mb-4 playfair">Oficinas e Serviços Artísticos</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Leve a magia do teatro e da criatividade para sua escola ou evento</p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <div class="glass-effect rounded-3xl p-12 card-professional text-center">
+                <h3 class="text-3xl font-bold text-gradient mb-8 playfair">Atividades Artísticas para Crianças</h3>
+                
+                <div class="text-gray-200 text-lg leading-relaxed space-y-6 mb-10">
+                    <p>
+                        A <strong class="text-yellow-400">Cia Imaginarius</strong> oferece oficinas e atividades artísticas itinerantes, ideais para escolas, eventos e projetos educativos que buscam despertar a criatividade das crianças.
+                    </p>
+                    <p>
+                        Trabalhamos com <strong class="text-blue-300">teatro, expressão corporal, música, dança</strong> e <strong class="text-pink-300">contação de histórias</strong>, adaptando cada atividade à faixa etária e objetivo do contratante.
+                    </p>
+                    <p>
+                        Além das oficinas, realizamos <strong class="text-yellow-400">animação de festas</strong> e <strong class="text-yellow-400">contação de histórias personalizadas</strong>, levando alegria e arte para diferentes ocasiões.
+                    </p>
+                    <p>
+                        <strong class="text-yellow-400">Para crianças de 4 a 12 anos</strong> • Flexível em local e horário • Metodologia lúdica e acolhedora
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                   <button onclick="window.open('https://wa.me/5511964658950?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20das%20oficinas%20criativas.', '_blank')" class="btn-primary py-4 px-8 rounded-xl font-semibold text-purple-900 text-lg">
+    Solicitar orçamento
+</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <div class="section-divider"></div>
+
+        <!-- Contato Section -->
+        <section id="contato" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold title-gradient mb-4 playfair">Contato</h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">Entre em contato conosco</p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                    <div class="space-y-8">
+                        <div class="glass-effect rounded-2xl p-8 card-professional">
+                            <h3 class="text-2xl font-bold text-gradient mb-6 playfair">Informações de Contato</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center shadow-lg">
+                                        <svg class="w-6 h-6 text-purple-900" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-semibold">E-mail</p>
+                                        <a href="mailto:ciateatralimaginarius@gmail.com" class="text-gray-300">ciateatralimaginarius@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                     <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-700 rounded-xl flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.488"/>
+                                    </svg>
+                                </div>
+                                    <div>
+                                        <p class="text-white font-semibold">Whatsapp</p>
+                                        <a href="https://wa.me/5511964658950" class="text-gray-300">(11) 96465-8950</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl flex items-center justify-center shadow-lg">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-semibold">Localização</p>
+                                        <p class="text-gray-300">São Paulo, SP</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                       <div class="glass-effect rounded-2xl p-8 card-professional">
+    <h4 class="text-xl font-bold text-gradient mb-6 playfair">Redes Sociais</h4>
+    <div class="flex space-x-4">
+
+        <a href="https://www.instagram.com/ciaimaginarius/" target="_blank" rel="noopener noreferrer">
+            <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-xl flex items-center justify-center cursor-pointer hover:scale-110 transition-transform shadow-lg">
+                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </div>
+        </a>
+
+    </div>
+</div>
+</div>
+                    
+                    <div class="glass-effect rounded-2xl p-8 card-professional">
+                        <h3 class="text-2xl font-bold text-white mb-6 playfair">Envie sua Mensagem</h3>
+                      <form action="https://formsubmit.co/ciateatralimaginarius@gmail.com" method="POST" class="space-y-6">
+
+  
+
+    
+
+    <div>
+        <input type="text" name="nome" placeholder="Seu Nome" required class="w-full p-4 rounded-xl glass-effect text-white placeholder-gray-400 border border-white border-opacity-20 focus:border-yellow-400 focus:outline-none transition-colors">
+    </div>
+    <div>
+        <input type="email" name="email" placeholder="Seu E-mail" required class="w-full p-4 rounded-xl glass-effect text-white placeholder-gray-400 border border-white border-opacity-20 focus:border-yellow-400 focus:outline-none transition-colors">
+    </div>
+    <div>
+        <input type="tel" name="telefone" placeholder="Telefone (opcional)" class="w-full p-4 rounded-xl glass-effect text-white placeholder-gray-400 border border-white border-opacity-20 focus:border-yellow-400 focus:outline-none transition-colors">
+    </div>
+    <div>
+        <textarea name="mensagem" placeholder="Sua Mensagem" rows="5" required class="w-full p-4 rounded-xl glass-effect text-white placeholder-gray-400 border border-white border-opacity-20 focus:border-yellow-400 focus:outline-none resize-none transition-colors"></textarea>
+    </div>
+    <button type="submit" class="btn-primary w-full py-4 rounded-xl font-semibold text-purple-900 text-lg">
+        Enviar Mensagem
+    </button>
+</form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+         
+        <footer class="py-20 glass-effect mt-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center">
+                    <div class="flex items-center justify-center space-x-4 mb-8">
+                        <div>
+                            <img src="https://i.ibb.co/d4SDmKHg/logo-header.png" alt="Logo" class="h-20 object-contain">
+                            <p class="text-gray-400 text-sm">Teatro Infantil Profissional</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-white border-opacity-20 pt-8"></div>
+
+                     <!-- Bloco de Apoio com QR Code -->
+<div class="mt-10 flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
+  <!-- QR Code -->
+  <div class="w-40 h-40 flex-shrink-0">
+    <img src="https://i.ibb.co/zWmgsTF2/Whats-App-Image-2025-07-09-at-15-09-31.jpg" alt="QR Code para doação" class="w-full h-full object-contain rounded-lg border border-gray-700">
+  </div>
+  <!-- Texto -->
+  <div class="text-gray-300 max-w-xl">
+    <h3 class="text-lg font-bold text-blood-red mb-2">Ajude a manter nossa arte viva</h3>
+    <p class="text-sm leading-relaxed mb-3">
+      Somos artistas independentes e seguimos firmes graças ao apoio coletivo.<br>
+      Se você acredita no poder da arte, qualquer contribuição — de qualquer valor — será recebida com gratidão e transformada em resistência poética.
+    </p>
+    <p class="text-white font-bold text-base bg-zinc-800 px-4 py-2 justify-center rounded-lg inline-block">
+      CHAVE PIX: <span class="text-white">ciateatralimaginarius@gmail.com</span></p> <br>
+  </div>
+</div>
+<br>
+
+                    <div class="border-t border-white border-opacity-20 pt-8">
+                        <p class="text-gray-300 mb-2">© 2025 Cia Imaginarius - Teatro Infantil. Todos os direitos reservados.</p>
+                        <p class="text-gray-400 text-sm">Criando magia e encantamento através do teatro infantil.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth Scroll
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Gallery Filter
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const filters = document.querySelectorAll('.gallery-filter');
+            
+            // Update active filter
+            filters.forEach(filter => {
+                filter.classList.remove('btn-primary', 'active');
+                filter.classList.add('btn-secondary');
+            });
+            
+            event.target.classList.remove('btn-secondary');
+            event.target.classList.add('btn-primary', 'active');
+            
+            // Filter items
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Modal Functions
+        function openModal(emoji, text) {
+            document.getElementById('modalEmoji').textContent = emoji;
+            document.getElementById('modalText').textContent = text;
+            document.getElementById('imageModal').classList.add('show');
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('imageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // Image Upload Functions
+        function uploadShowImage(element, inputId) {
+            document.getElementById(inputId).click();
+        }
+
+        function uploadTeamPhoto(element, inputId) {
+            document.getElementById(inputId).click();
+        }
+
+        function handleImageUpload(event, container) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    container.style.backgroundImage = `url(${e.target.result})`;
+                    container.style.backgroundSize = 'cover';
+                    container.style.backgroundPosition = 'center';
+                    container.innerHTML = '<div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity"><p class="text-white text-sm">Clique para trocar cartaz</p></div>';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function uploadCompanyLogo(element, inputId) {
+            document.getElementById(inputId).click();
+        }
+
+        function handleTeamPhotoUpload(event, container) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    container.style.backgroundImage = `url(${e.target.result})`;
+                    container.style.backgroundSize = 'cover';
+                    container.style.backgroundPosition = 'center';
+                    container.innerHTML = '<div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity rounded-2xl"><p class="text-white text-xs">Trocar foto</p></div>';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function handleCompanyLogoUpload(event, container) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    container.style.backgroundImage = `url(${e.target.result})`;
+                    container.style.backgroundSize = 'cover';
+                    container.style.backgroundPosition = 'center';
+                    container.innerHTML = '<div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity rounded-3xl"><p class="text-white text-sm">Trocar logo</p></div>';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Form submission (demo)
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Obrigado pela sua mensagem! Entraremos em contato em breve. 🌟');
+            this.reset();
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.card-professional').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95c83d27d12d5221',t:'MTc1MjA2ODQ4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
